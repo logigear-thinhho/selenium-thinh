@@ -30,9 +30,21 @@
         </dependency>
 
         <dependency>
+            <groupId>org.uncommons</groupId>
+            <artifactId>reportng</artifactId>
+            <version>1.1.4</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.google.inject</groupId>
             <artifactId>guice</artifactId>
             <version>4.2.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>3.8.1</version>
         </dependency>
     </dependencies>
 
@@ -43,16 +55,18 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.5</version>
                 <configuration>
-                    <properties> <property>
-                        <name>usedefaultlisteners</name>
-                        <value>false</value>
-                    </property>
+                    <properties>
+                        <property>
+                            <name>usedefaultlisteners</name>
+                            <value>false</value>
+                        </property>
                         <property>
                             <name>listener</name>
                             <value>org.uncommons.reportng.HTMLReporter,
                                 org.uncommons.reportng.JUnitXMLReporter
                             </value>
-                        </property> </properties>
+                        </property>
+                    </properties>
                 </configuration>
             </plugin>
         </plugins>

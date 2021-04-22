@@ -3,6 +3,7 @@ package tests;
 import common.constants.Constant;
 import common.driver_manager.DriverManager;
 import common.helpers.Helper;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;

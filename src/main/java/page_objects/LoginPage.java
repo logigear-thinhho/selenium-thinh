@@ -2,6 +2,7 @@ package page_objects;
 
 import common.constants.Constant;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
 public class LoginPage extends BasePage {
@@ -43,7 +44,16 @@ public class LoginPage extends BasePage {
         this.getTxtUsername().sendKeys(username);
         getTxtPassword().clear();
         this.getTxtPassword().sendKeys(password);
+
+        JavascriptExecutor jse = (JavascriptExecutor)Constant.WEBDRIVER;
+        jse.executeScript("window.scrollBy(0,300)");
+
         this.getBtnLogin().click();
+    }
+
+    public void logout(){
+        BasePage basePage = new BasePage();
+        basePage.getTabLogout().click();
     }
 
 }
