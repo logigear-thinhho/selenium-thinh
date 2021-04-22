@@ -8,4 +8,8 @@ public class Constant {
     public static final String USERNAME = "thinhho@gmail.com";
     public static final String PASSWORD = "123123123";
 
+    public static final String EMAIL = "thinhho123@gmail.com";
+    public static final String CONFIRM_PASSWORD = "123123123";
+    public static final String PID = "12345678";
+
 }

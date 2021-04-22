@@ -56,4 +56,7 @@ public class LoginPage extends BasePage {
         basePage.getTabLogout().click();
     }
 
+
+
+
 }
