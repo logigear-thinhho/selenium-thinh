@@ -11,7 +11,8 @@ public class DriverManagerFactory {
                 driverManager = new FirefoxDriverManager();
                 break;
             default:
-                throw new IllegalStateException("Unexpected value: " + type);
+                driverManager = new ChromeDriverManager();
+                break;
         }
         return driverManager;
     }
