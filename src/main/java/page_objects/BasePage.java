@@ -1,6 +1,6 @@
 package page_objects;
 
-import common.constants.Constant;
+import common.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -10,30 +10,36 @@ public class BasePage {
     private final By tabRegister = By.cssSelector("a[href*='/Register']");
     private final By tabBookTicket = By.cssSelector("a[href*='BookTicket']");
 
-    protected WebElement getTabLogin(){
+    protected WebElement getTabLogin() {
         return Constant.WEBDRIVER.findElement(tabLogin);
     }
 
-    protected WebElement getTabLogout(){ return Constant.WEBDRIVER.findElement(tabLogout); }
+    protected WebElement getTabLogout() {
+        return Constant.WEBDRIVER.findElement(tabLogout);
+    }
 
-    protected WebElement getTabRegister(){ return Constant.WEBDRIVER.findElement(tabRegister); }
+    protected WebElement getTabRegister() {
+        return Constant.WEBDRIVER.findElement(tabRegister);
+    }
 
-    protected WebElement getTabBookTicket(){ return Constant.WEBDRIVER.findElement(tabBookTicket); }
+    protected WebElement getTabBookTicket() {
+        return Constant.WEBDRIVER.findElement(tabBookTicket);
+    }
 
 
-    public void gotoLoginPage(){
+    public void gotoLoginPage() {
         this.getTabLogin().click();
     }
 
-    public void gotoRegisterPage(){
+    public void gotoRegisterPage() {
         this.getTabRegister().click();
     }
 
-    public void gotoBookTicketPage(){
+    public void gotoBookTicketPage() {
         this.getTabBookTicket().click();
     }
 
-    public void gotoLogout(){
+    public void gotoLogout() {
         this.getTabLogout().click();
     }
 }

@@ -1,12 +1,11 @@
 package common.helpers;
 
-import common.constants.Constant;
-import org.openqa.selenium.By;
+import common.Constant;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
 public class Helper {
-    public static String getProjectPath(){
+    public static String getProjectPath() {
         return System.getProperty("user.dir");
     }
 

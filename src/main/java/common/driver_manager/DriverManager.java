@@ -1,20 +1,21 @@
 package common.driver_manager;
 
-import common.constants.Constant;
+import common.Constant;
 import org.openqa.selenium.WebDriver;
 
 public abstract class DriverManager {
 
     protected abstract void createWebDriver();
-    public void quitWebDriver(){
-        if(null != Constant.WEBDRIVER){
+
+    public void quitWebDriver() {
+        if (null != Constant.WEBDRIVER) {
             Constant.WEBDRIVER.quit();
             Constant.WEBDRIVER = null;
         }
     }
 
-    public WebDriver getWebDriver(){
-        if(null == Constant.WEBDRIVER){
+    public WebDriver getWebDriver() {
+        if (null == Constant.WEBDRIVER) {
             createWebDriver();
         }
         return Constant.WEBDRIVER;

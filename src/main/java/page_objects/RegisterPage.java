@@ -1,7 +1,6 @@
 package page_objects;
 
-import com.sun.org.apache.bcel.internal.Const;
-import common.constants.Constant;
+import common.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
