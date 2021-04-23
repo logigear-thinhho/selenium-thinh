@@ -1,9 +1,9 @@
 package tests;
 
-import common.Constant;
-import common.driver_manager.DriverManager;
-import common.driver_manager.DriverManagerFactory;
-import common.driver_manager.DriverType;
+import helpers.Constant;
+import driver_manager.DriverManager;
+import driver_manager.DriverManagerFactory;
+import driver_manager.DriverType;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -15,8 +15,6 @@ public class BaseTest {
         System.out.println("Pre-condition");
         driverManager = DriverManagerFactory.getDriverManager(DriverType.CHROME);
         Constant.WEBDRIVER = driverManager.getWebDriver();
-        JavascriptExecutor js;
-        js = (JavascriptExecutor) Constant.WEBDRIVER;
     }
 
     @AfterMethod

@@ -1,4 +1,4 @@
-package common.driver_manager;
+package driver_manager;
 
 public class DriverManagerFactory {
     public static DriverManager getDriverManager(DriverType type) {

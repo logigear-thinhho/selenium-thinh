@@ -1,6 +1,6 @@
-package common.driver_manager;
+package driver_manager;
 
-import common.Constant;
+import helpers.Constant;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.firefox.FirefoxDriver;
