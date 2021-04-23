@@ -10,4 +10,9 @@ public class WaitElement {
         WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER, seconds);
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
+
+    public static boolean waitForTitle(String title, int seconds) {
+        WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER, seconds);
+        return wait.until(ExpectedConditions.titleIs(title));
+    }
 }
