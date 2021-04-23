@@ -16,10 +16,9 @@ import java.io.IOException;
 public class LoginTest extends BaseTest {
     @Test
     public void TC01() {
+        System.out.println("TC01 - User cannot log into Railway with invalid username and password/ can log into site with valid username and password");
         HomePage homePage = new HomePage();
         LoginPage loginPage = new LoginPage();
-
-        System.out.println("TC01 - User cannot log into Railway with invalid username and password/ can log into site with valid username and password");
         homePage.open();
         loginPage.gotoLoginPage();
 
