@@ -15,7 +15,7 @@ public class ChromeDriverManager extends DriverManager {
         ChromeOptions options = new ChromeOptions();
         Constant.WEBDRIVER = new ChromeDriver(options);
         options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-        Constant.WEBDRIVER.manage().window().maximize();
+//        Constant.WEBDRIVER.manage().window().maximize();
         Constant.WEBDRIVER.manage().timeouts().implicitlyWait(Constant.TIME_OUT, TimeUnit.SECONDS);
     }
 

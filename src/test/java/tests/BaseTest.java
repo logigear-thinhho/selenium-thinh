@@ -1,5 +1,6 @@
 package tests;
 
+import helpers.Common;
 import helpers.Constant;
 import driver_manager.DriverManager;
 import driver_manager.DriverManagerFactory;
@@ -7,6 +8,9 @@ import driver_manager.DriverType;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
+
+import java.io.IOException;
 
 public class BaseTest {
     @BeforeMethod
@@ -21,5 +25,13 @@ public class BaseTest {
     public void afterMethod() {
         System.out.println("Post-condition");
         Constant.WEBDRIVER.quit();
+    }
+
+    @DataProvider(name = "getDataForTest")
+    public Object[][] getDataForTest() throws IOException {
+        Object[][] data;
+        String testCaseName = this.getClass().getSimpleName();
+        data = Common.getData(System.getProperty("user.dir") + "\\src\\test\\resources\\FileInputStream\\data1.json", testCaseName);
+        return data;
     }
 }
