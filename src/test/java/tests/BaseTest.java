@@ -27,11 +27,5 @@ public class BaseTest {
         Constant.WEBDRIVER.quit();
     }
 
-    @DataProvider(name = "getDataForTest")
-    public Object[][] getDataForTest() throws IOException {
-        Object[][] data;
-        String testCaseName = this.getClass().getSimpleName();
-        data = Common.getData(System.getProperty("user.dir") + "\\src\\test\\resources\\FileInputStream\\data1.json", testCaseName);
-        return data;
-    }
+
 }
