@@ -1,5 +1,6 @@
 package page_objects;
 
+import com.sun.org.apache.bcel.internal.Const;
 import helpers.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -10,6 +11,8 @@ public class RegisterPage extends BasePage {
     private final By txtConfirmPassword = By.id("confirmPassword");
     private final By txtPid = By.id("pid");
     private final By btnRegister = By.cssSelector("input[value='Register']");
+    private final By lblErrorMessage = By.cssSelector(".message.error");
+    private final By lblConfirmMessage = By.cssSelector("#content p");
 
     public WebElement getTxtEmail() {
         return Constant.WEBDRIVER.findElement(txtEmail);
@@ -29,6 +32,22 @@ public class RegisterPage extends BasePage {
 
     public WebElement getBtnRegister() {
         return Constant.WEBDRIVER.findElement(btnRegister);
+    }
+
+    public WebElement getLblErrorMessage() {
+        return Constant.WEBDRIVER.findElement(lblErrorMessage);
+    }
+
+    public WebElement getLblConfirmMessage(){
+        return Constant.WEBDRIVER.findElement(lblConfirmMessage);
+    }
+
+    public String getErrorMessage() {
+        return this.getLblErrorMessage().getText();
+    }
+
+    public String getConfirmMessage(){
+        return this.getLblConfirmMessage().getText();
     }
 
     //Methods

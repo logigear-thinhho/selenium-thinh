@@ -12,4 +12,8 @@ public class DataHelper {
     public static String randomText() {
         return faker.letterify("????????");
     }
+
+    public static String randomNumber() {
+        return faker.numerify("########");
+    }
 }

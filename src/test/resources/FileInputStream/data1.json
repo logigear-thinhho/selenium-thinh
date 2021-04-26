@@ -1,9 +1,0 @@
-{
-  "LoginTest": [{
-    "username": "thinhho@gmail.com",
-    "password": "123123123"
-  }],
-  "TC02": [{
-    "msg_InvalidLogin": "Invalid username or password. Please try again."
-  }]
-}

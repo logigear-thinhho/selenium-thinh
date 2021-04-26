@@ -1,28 +1,35 @@
 package tests;
 
+import helpers.BrowserHelper;
 import helpers.Common;
 import helpers.Constant;
 import driver_manager.DriverManager;
 import driver_manager.DriverManagerFactory;
 import driver_manager.DriverType;
 import org.openqa.selenium.JavascriptExecutor;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
+import org.testng.annotations.*;
 
 import java.io.IOException;
 
 public class BaseTest {
-    @BeforeMethod
-    public void beforeMethod() {
-        DriverManager driverManager;
+//    @BeforeTest
+//    public void beforeTest() {
+//        DriverManager driverManager;
+//        System.out.println("Pre-condition");
+//        driverManager = DriverManagerFactory.getDriverManager(DriverType.CHROME);
+//        Constant.WEBDRIVER = driverManager.getWebDriver();
+//        Common.openRailway();
+//    }
+
+    @BeforeTest
+    public void beforeTest() {
         System.out.println("Pre-condition");
-        driverManager = DriverManagerFactory.getDriverManager(DriverType.CHROME);
-        Constant.WEBDRIVER = driverManager.getWebDriver();
+        BrowserHelper.startBrowser(BrowserHelper.DriverType.CHROME);
+        Common.openRailway();
     }
 
-    @AfterMethod
-    public void afterMethod() {
+    @AfterTest
+    public void afterTest() {
         System.out.println("Post-condition");
         Constant.WEBDRIVER.quit();
     }

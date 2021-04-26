@@ -15,12 +15,11 @@ public class Wait {
         return wait.until(ExpectedConditions.titleIs(title));
     }
 
-    public static void forStep(By element ,int time)
-    {
-        try{
-            WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER,time);
-            wait.until(ExpectedConditions.invisibilityOfElementLocated(element));}
-        catch (RuntimeException e){
+    public static void forStep(By element, int time) {
+        try {
+            WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER, time);
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(element));
+        } catch (RuntimeException e) {
             e.printStackTrace();
         }
     }

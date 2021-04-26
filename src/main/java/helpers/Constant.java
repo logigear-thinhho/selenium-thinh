@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 public class Constant {
     public static WebDriver WEBDRIVER;
     public static final String RAILWAY_URL = "http://www.railwayqa.somee.com/";
+
     public static final String USERNAME = "thinhho@gmail.com";
     public static final String PASSWORD = "123123123";
 
@@ -13,5 +14,6 @@ public class Constant {
     public static final String PID = "12345678";
 
     public static final Integer TIME_OUT = 10;
+    public static final Integer IMPLICITLY_TIME = 20;
 
 }
