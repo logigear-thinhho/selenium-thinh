@@ -1,7 +1,7 @@
 package page_objects;
 
-import com.sun.org.apache.bcel.internal.Const;
-import helpers.Constant;
+import helpers.BrowserHelper;
+import helpers.ElementHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -10,43 +10,43 @@ public class RegisterPage extends BasePage {
     private final By txtPassword = By.id("password");
     private final By txtConfirmPassword = By.id("confirmPassword");
     private final By txtPid = By.id("pid");
-    private final By btnRegister = By.cssSelector("input[value='Register']");
+    private final By btnRegister = By.cssSelector("input[type='submit']");
     private final By lblErrorMessage = By.cssSelector(".message.error");
     private final By lblConfirmMessage = By.cssSelector("#content p");
 
     public WebElement getTxtEmail() {
-        return Constant.WEBDRIVER.findElement(txtEmail);
+        return BrowserHelper.getDriver().findElement(txtEmail);
     }
 
     public WebElement getTxtPassword() {
-        return Constant.WEBDRIVER.findElement(txtPassword);
+        return BrowserHelper.getDriver().findElement(txtPassword);
     }
 
     public WebElement getTxtConfirmPassword() {
-        return Constant.WEBDRIVER.findElement(txtConfirmPassword);
+        return BrowserHelper.getDriver().findElement(txtConfirmPassword);
     }
 
     public WebElement getTxtPid() {
-        return Constant.WEBDRIVER.findElement(txtPid);
+        return BrowserHelper.getDriver().findElement(txtPid);
     }
 
     public WebElement getBtnRegister() {
-        return Constant.WEBDRIVER.findElement(btnRegister);
+        return BrowserHelper.getDriver().findElement(btnRegister);
     }
 
     public WebElement getLblErrorMessage() {
-        return Constant.WEBDRIVER.findElement(lblErrorMessage);
+        return BrowserHelper.getDriver().findElement(lblErrorMessage);
     }
 
-    public WebElement getLblConfirmMessage(){
-        return Constant.WEBDRIVER.findElement(lblConfirmMessage);
+    public WebElement getLblConfirmMessage() {
+        return BrowserHelper.getDriver().findElement(lblConfirmMessage);
     }
 
     public String getErrorMessage() {
         return this.getLblErrorMessage().getText();
     }
 
-    public String getConfirmMessage(){
+    public String getConfirmMessage() {
         return this.getLblConfirmMessage().getText();
     }
 
@@ -64,6 +64,7 @@ public class RegisterPage extends BasePage {
         getTxtPid().clear();
         this.getTxtPid().sendKeys(pid);
 
+        ElementHelper.scrollToView(getBtnRegister());
         this.getBtnRegister().click();
     }
 }

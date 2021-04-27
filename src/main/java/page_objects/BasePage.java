@@ -1,6 +1,6 @@
 package page_objects;
 
-import helpers.Constant;
+import helpers.BrowserHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -11,19 +11,19 @@ public class BasePage {
     private final By tabBookTicket = By.cssSelector("a[href*='BookTicket']");
 
     protected WebElement getTabLogin() {
-        return Constant.WEBDRIVER.findElement(tabLogin);
+        return BrowserHelper.getDriver().findElement(tabLogin);
     }
 
     protected WebElement getTabLogout() {
-        return Constant.WEBDRIVER.findElement(tabLogout);
+        return BrowserHelper.getDriver().findElement(tabLogout);
     }
 
     protected WebElement getTabRegister() {
-        return Constant.WEBDRIVER.findElement(tabRegister);
+        return BrowserHelper.getDriver().findElement(tabRegister);
     }
 
     protected WebElement getTabBookTicket() {
-        return Constant.WEBDRIVER.findElement(tabBookTicket);
+        return BrowserHelper.getDriver().findElement(tabBookTicket);
     }
 
 

@@ -5,15 +5,15 @@ import com.github.javafaker.Faker;
 public class DataHelper {
     private static final Faker faker = new Faker();
 
-    public static String randomEmail() {
+    public static String getRandomEmail() {
         return faker.internet().emailAddress();
     }
 
-    public static String randomText() {
+    public static String getRandomText() {
         return faker.letterify("????????");
     }
 
-    public static String randomNumber() {
+    public static String getRandomNumber() {
         return faker.numerify("########");
     }
 }

@@ -1,0 +1,37 @@
+[
+  {
+    "email": "aaaaaaaa",
+    "password": "123123123",
+    "confirmPassword": "123123123",
+    "pid": "11111111",
+    "message": "There're errors in the form. Please correct the errors and try again."
+  },
+  {
+    "email": "aaaaaaaa@gmail.com",
+    "password": "111",
+    "confirmPassword": "123123123",
+    "pid": "11111111",
+    "message": "There're errors in the form. Please correct the errors and try again."
+  },
+  {
+    "email": "aaaaaaaa@gmail.com",
+    "password": "123123123",
+    "confirmPassword": "123123123",
+    "pid": "111",
+    "message": "There're errors in the form. Please correct the errors and try again."
+  },
+  {
+    "email": "aaaaaaaa@gmail.com",
+    "password": "123123123",
+    "confirmPassword": "123456789",
+    "pid": "11111111",
+    "message": "There're errors in the form. Please correct the errors and try again."
+  },
+  {
+    "email": "thinhho@gmail.com",
+    "password": "123123123",
+    "confirmPassword": "123123123",
+    "pid": "11111111",
+    "message": "This email address is already in use."
+  }
+]

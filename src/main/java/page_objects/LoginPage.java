@@ -1,6 +1,6 @@
 package page_objects;
 
-import helpers.Constant;
+import helpers.BrowserHelper;
 import helpers.ElementHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -8,28 +8,28 @@ import org.openqa.selenium.WebElement;
 public class LoginPage extends BasePage {
     private final By txtUsername = By.id("username");
     private final By txtPassword = By.id("password");
-    private final By btnLogin = By.cssSelector("input[value='Login']");
+    private final By btnLogin = By.cssSelector("input[type='submit']");
     private final By lblLoginErrorMsg = By.cssSelector(".message.error.LoginForm");
     private final By lblWelcomeMessage = By.cssSelector(".account strong");
 
     public WebElement getTxtUsername() {
-        return Constant.WEBDRIVER.findElement(txtUsername);
+        return BrowserHelper.getDriver().findElement(txtUsername);
     }
 
     public WebElement getTxtPassword() {
-        return Constant.WEBDRIVER.findElement(txtPassword);
+        return BrowserHelper.getDriver().findElement(txtPassword);
     }
 
     public WebElement getBtnLogin() {
-        return Constant.WEBDRIVER.findElement(btnLogin);
+        return BrowserHelper.getDriver().findElement(btnLogin);
     }
 
     public WebElement getLblErrorMsg() {
-        return Constant.WEBDRIVER.findElement(lblLoginErrorMsg);
+        return BrowserHelper.getDriver().findElement(lblLoginErrorMsg);
     }
 
     public WebElement getLblWelcomeMessage() {
-        return Constant.WEBDRIVER.findElement(lblWelcomeMessage);
+        return BrowserHelper.getDriver().findElement(lblWelcomeMessage);
     }
 
     public String getWelcomeMessage() {
