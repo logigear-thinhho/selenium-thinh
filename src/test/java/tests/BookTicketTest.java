@@ -2,47 +2,44 @@ package tests;
 
 import helpers.Constant;
 import helpers.DataHelper;
-import helpers.Wait;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import page_objects.BookTicketPage;
 import page_objects.LoginPage;
-import page_objects.SuccessPage;
 
 public class BookTicketTest extends BaseTest {
     BookTicketPage bookTicketPage = new BookTicketPage();
     LoginPage loginPage = new LoginPage();
 
-    @BeforeMethod
-    public void beforeMethod() {
-        bookTicketPage.gotoBookTicketPage();
-        loginPage.login(Constant.USERNAME, Constant.PASSWORD);
-    }
-
     @Test(description = "User can book a ticket")
     public void TC01() {
+        bookTicketPage.gotoBookTicketPage();
+        loginPage.login(Constant.USERNAME, Constant.PASSWORD);
+
         String departDate = "5/8/2021";
         String departFrom = "Đà Nẵng";
         String arriveAt = "Huế";
         String seatType = "Hard bed";
-        String ticketAmount = "2";
+        String ticketAmount = "1";
+        String totalPrice = "250000";
+
         bookTicketPage.bookTicket(departDate, departFrom, ticketAmount, seatType, arriveAt);
 
-        SuccessPage successPage = new SuccessPage();
-        String actualConfirmMsg = successPage.getConfirmMessage();
+        String actualConfirmMsg = bookTicketPage.getConfirmMessage();
         String expectedConfirmMsg = "Ticket Booked Successfully!";
+
         Assert.assertEquals(actualConfirmMsg, expectedConfirmMsg, "Booked error!");
 
-        String bookDate = DataHelper.getDate(0);
-        String expiredDate = DataHelper.getDate(3);
+        String bookDate = DataHelper.getDateFromToday(0);
+        String expiredDate = DataHelper.getDateFromToday(3);
 
-        String actualMsg = bookTicketPage.checkTicket();
-        String expectedMsg = "{ Depart Station: " + departFrom + ", Arrive Station: "
-                + arriveAt + ", Seat Type: " + seatType + ", Depart Date: " + departDate
-                + ", Book Date: " + bookDate + ", Expired Date: " + expiredDate
-                + ", Amount: " + ticketAmount + " }";
-
-        Assert.assertEquals(actualMsg, expectedMsg, "Booked error!");
+        Assert.assertEquals(bookTicketPage.getCellValueByHeader("Depart Date"), departDate, "Depart Date is not displayed as expected");
+        Assert.assertEquals(bookTicketPage.getCellValueByHeader("Depart Station"), departFrom, "Depart Station is not displayed as expected");
+        Assert.assertEquals(bookTicketPage.getCellValueByHeader("Arrive Station"), arriveAt, "Arrive Station is not displayed as expected");
+        Assert.assertEquals(bookTicketPage.getCellValueByHeader("Seat Type"), seatType, "Seat Type is not displayed as expected");
+        Assert.assertEquals(bookTicketPage.getCellValueByHeader("Amount"), ticketAmount, "Amount is not displayed as expected");
+        Assert.assertEquals(bookTicketPage.getCellValueByHeader("Book Date"), bookDate, "Book Date is not displayed as expected");
+        Assert.assertEquals(bookTicketPage.getCellValueByHeader("Expired Date"), expiredDate, "Expired Date is not displayed as expected");
+        Assert.assertEquals(bookTicketPage.getCellValueByHeader("Total Price"), totalPrice, "Total Price is not displayed as expected");
     }
 }

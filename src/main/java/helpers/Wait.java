@@ -18,7 +18,7 @@ public class Wait {
 
     public static void untilVisibilityOfNestedElements(By locator, By child, int seconds) {
         WebDriverWait wait = new WebDriverWait(BrowserHelper.getDriver(), seconds);
-        wait.until(ExpectedConditions.visibilityOfNestedElementsLocatedBy(locator,child));
+        wait.until(ExpectedConditions.visibilityOfNestedElementsLocatedBy(locator, child));
     }
 
 }

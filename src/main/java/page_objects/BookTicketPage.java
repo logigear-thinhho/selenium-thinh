@@ -2,7 +2,6 @@ package page_objects;
 
 import helpers.BrowserHelper;
 import helpers.ElementHelper;
-import models.BookTicket;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -13,56 +12,57 @@ public class BookTicketPage extends BasePage {
     private final By ddlSeatType = By.name("SeatType");
     private final By ddlTicketAmount = By.name("TicketAmount");
     private final By btnBookTicket = By.cssSelector("input[type='submit']");
+    private final By lblConfirmMessage = By.cssSelector("#content h1");
+    private final String dynamicTableCell = "//table/tbody/tr/td[count(//table/tbody/tr/th[.='%s']/preceding-sibling::th)+1]";
 
-    public WebElement getDdlDepartDate() {
+    private WebElement getDdlDepartDate() {
         return BrowserHelper.getDriver().findElement(ddlDepartDate);
     }
 
-    public WebElement getDdlDepartFrom() {
+    private WebElement getDdlDepartFrom() {
         return BrowserHelper.getDriver().findElement(ddlDepartFrom);
     }
 
-    public WebElement getDdlArriveAt() {
+    private WebElement getDdlArriveAt() {
         return BrowserHelper.getDriver().findElement(ddlArriveAt);
     }
 
-    public WebElement getDdlSeatType() {
+    private WebElement getDdlSeatType() {
         return BrowserHelper.getDriver().findElement(ddlSeatType);
     }
 
-    public WebElement getDdlTicketAmount() {
+    private WebElement getDdlTicketAmount() {
         return BrowserHelper.getDriver().findElement(ddlTicketAmount);
     }
 
-    public WebElement getBtnBookTicket() {
+    private WebElement getBtnBookTicket() {
         return BrowserHelper.getDriver().findElement(btnBookTicket);
     }
 
+    private WebElement getLblConfirmMessage() {
+        return BrowserHelper.getDriver().findElement(lblConfirmMessage);
+    }
+
+    private WebElement getCellByHeader(String header) {
+        return BrowserHelper.getDriver().findElement(By.xpath(String.format(dynamicTableCell, header)));
+    }
+
+    public String getConfirmMessage() {
+        return this.getLblConfirmMessage().getText();
+    }
+
+    public String getCellValueByHeader(String header) {
+        return getCellByHeader(header).getText();
+    }
+
     public void bookTicket(String departDate, String departFrom, String ticketAmount, String seatType, String arriveAt) {
-        BookTicket bookTicket = new BookTicket();
-
-        bookTicket.setDepartDate(departDate);
-        bookTicket.setDepartFrom(departFrom);
-        bookTicket.setTicketAmount(ticketAmount);
-        bookTicket.setSeatType(seatType);
-        bookTicket.setArriveAt(arriveAt);
-
         ElementHelper.selectDropdownByText(getDdlDepartFrom(), departFrom);
         ElementHelper.selectDropdownByText(getDdlDepartDate(), departDate);
         ElementHelper.selectDropdownByText(getDdlTicketAmount(), ticketAmount);
         ElementHelper.selectDropdownByText(getDdlSeatType(), seatType);
         ElementHelper.selectDropdownByText(getDdlArriveAt(), arriveAt);
 
-
         ElementHelper.scrollToView(getBtnBookTicket());
         this.getBtnBookTicket().click();
-    }
-
-    public String checkTicket() {
-        SuccessPage successPage = new SuccessPage();
-        return "{ Depart Station: " + successPage.getTextByHead("Depart Station") + ", Arrive Station: " + successPage.getTextByHead("Arrive Station")
-                + ", Seat Type: " + successPage.getTextByHead("Seat Type") + ", Depart Date: " + successPage.getTextByHead("Depart Date")
-                + ", Book Date: " + successPage.getTextByHead("Book Date") + ", Expired Date: " + successPage.getTextByHead("Expired Date")
-                + ", Amount: " + successPage.getTextByHead("Amount") + " }";
     }
 }

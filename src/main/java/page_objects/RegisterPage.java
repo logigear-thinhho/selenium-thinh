@@ -14,31 +14,31 @@ public class RegisterPage extends BasePage {
     private final By lblErrorMessage = By.cssSelector(".message.error");
     private final By lblConfirmMessage = By.cssSelector("#content p");
 
-    public WebElement getTxtEmail() {
+    private WebElement getTxtEmail() {
         return BrowserHelper.getDriver().findElement(txtEmail);
     }
 
-    public WebElement getTxtPassword() {
+    private WebElement getTxtPassword() {
         return BrowserHelper.getDriver().findElement(txtPassword);
     }
 
-    public WebElement getTxtConfirmPassword() {
+    private WebElement getTxtConfirmPassword() {
         return BrowserHelper.getDriver().findElement(txtConfirmPassword);
     }
 
-    public WebElement getTxtPid() {
+    private WebElement getTxtPid() {
         return BrowserHelper.getDriver().findElement(txtPid);
     }
 
-    public WebElement getBtnRegister() {
+    private WebElement getBtnRegister() {
         return BrowserHelper.getDriver().findElement(btnRegister);
     }
 
-    public WebElement getLblErrorMessage() {
+    private WebElement getLblErrorMessage() {
         return BrowserHelper.getDriver().findElement(lblErrorMessage);
     }
 
-    public WebElement getLblConfirmMessage() {
+    private WebElement getLblConfirmMessage() {
         return BrowserHelper.getDriver().findElement(lblConfirmMessage);
     }
 

@@ -20,7 +20,7 @@ public class DataHelper {
         return faker.numerify("########");
     }
 
-    public static String getDate(int num) {
+    public static String getDateFromToday(int num) {
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.DATE, num);
         return new SimpleDateFormat("M/d/yyyy").format(cal.getTime());

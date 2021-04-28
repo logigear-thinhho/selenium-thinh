@@ -12,23 +12,23 @@ public class LoginPage extends BasePage {
     private final By lblLoginErrorMsg = By.cssSelector(".message.error.LoginForm");
     private final By lblWelcomeMessage = By.cssSelector(".account strong");
 
-    public WebElement getTxtUsername() {
+    private WebElement getTxtUsername() {
         return BrowserHelper.getDriver().findElement(txtUsername);
     }
 
-    public WebElement getTxtPassword() {
+    private WebElement getTxtPassword() {
         return BrowserHelper.getDriver().findElement(txtPassword);
     }
 
-    public WebElement getBtnLogin() {
+    private WebElement getBtnLogin() {
         return BrowserHelper.getDriver().findElement(btnLogin);
     }
 
-    public WebElement getLblErrorMsg() {
+    private WebElement getLblErrorMsg() {
         return BrowserHelper.getDriver().findElement(lblLoginErrorMsg);
     }
 
-    public WebElement getLblWelcomeMessage() {
+    private WebElement getLblWelcomeMessage() {
         return BrowserHelper.getDriver().findElement(lblWelcomeMessage);
     }
 
@@ -51,8 +51,7 @@ public class LoginPage extends BasePage {
     }
 
     public void logout() {
-        BasePage basePage = new BasePage();
-        basePage.getTabLogout().click();
+        clickLogout();
     }
 
 }

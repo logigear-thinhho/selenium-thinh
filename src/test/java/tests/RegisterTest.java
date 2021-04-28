@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import helpers.Common;
 import helpers.DataHelper;
 import models.Register;
-import org.apache.log4j.BasicConfigurator;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -20,15 +19,11 @@ public class RegisterTest extends BaseTest {
     RegisterPage registerPage = new RegisterPage();
     LoginPage loginPage = new LoginPage();
 
-    @BeforeMethod
-    public void beforeMethod() {
-        registerPage.gotoRegisterPage();
-        BasicConfigurator.configure();
-    }
-
     @Test(description = "User can create an account with valid data")
     public void TC01() {
         System.out.println("TC01 - User can create an account with valid data");
+
+        registerPage.gotoRegisterPage();
 
         String email = DataHelper.getRandomEmail();
         String password = DataHelper.getRandomText();
@@ -48,6 +43,8 @@ public class RegisterTest extends BaseTest {
 
     @Test(description = "User can not create an account with blank data")
     public void TC02() {
+        registerPage.gotoRegisterPage();
+
         registerPage.register("", "", "", "");
 
         String actualMsg = registerPage.getErrorMessage();
@@ -58,6 +55,8 @@ public class RegisterTest extends BaseTest {
 
     @Test(description = "User cannot create an account with invalid data", dataProvider = "invalidRegister")
     public void TC03(Register register) {
+        registerPage.gotoRegisterPage();
+
         registerPage.register(register.getEmail(), register.getPassword(), register.getConfirmPassword(), register.getPid());
 
         String actualMsg = registerPage.getErrorMessage();

@@ -18,15 +18,11 @@ import java.util.List;
 public class LoginTest extends BaseTest {
     LoginPage loginPage = new LoginPage();
 
-    @BeforeMethod
-    public void beforeMethod() {
-        loginPage.gotoLoginPage();
-    }
-
     @Test(description = "User cannot log in to Railway with blank email and password")
     public void TC01() {
         LogHelper.startTestCase("TC01 - User cannot log in to Railway with blank email and password");
 
+        loginPage.gotoLoginPage();
         loginPage.login("", "");
 
         String actualMsg = loginPage.getErrorMessage();
@@ -39,12 +35,11 @@ public class LoginTest extends BaseTest {
     public void TC02() {
         LogHelper.startTestCase("TC02 - User can log in to Railway with valid account");
 
+        loginPage.gotoLoginPage();
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
 
         String actualMsg = loginPage.getWelcomeMessage();
         String expectedMsg = "Welcome " + Constant.USERNAME;
-
-        loginPage.logout();
 
         Assert.assertEquals(actualMsg, expectedMsg, "Welcome message is not displayed as expected");
     }
@@ -53,6 +48,7 @@ public class LoginTest extends BaseTest {
     public void TC03(Login login) {
         System.out.println("TC03 - User cannot log in to Railway with invalid email and password");
 
+        loginPage.gotoLoginPage();
         loginPage.login(login.getUsername(), login.getPassword());
 
         String actualMsg = loginPage.getErrorMessage();
@@ -64,7 +60,8 @@ public class LoginTest extends BaseTest {
     @DataProvider(name = "invalidLogin")
     public static Object[] getInvalidLoginData() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        List<Login> logins = objectMapper.readValue(Common.readFile("/src/test/resources/test_data/invalidLogin.json"), new TypeReference<List<Login>>() {});
+        List<Login> logins = objectMapper.readValue(Common.readFile("/src/test/resources/test_data/invalidLogin.json"), new TypeReference<List<Login>>() {
+        });
         return logins.toArray();
     }
 

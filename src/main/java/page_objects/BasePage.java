@@ -10,22 +10,21 @@ public class BasePage {
     private final By tabRegister = By.cssSelector("a[href*='/Register']");
     private final By tabBookTicket = By.cssSelector("a[href*='BookTicket']");
 
-    protected WebElement getTabLogin() {
+    private WebElement getTabLogin() {
         return BrowserHelper.getDriver().findElement(tabLogin);
     }
 
-    protected WebElement getTabLogout() {
+    private WebElement getTabLogout() {
         return BrowserHelper.getDriver().findElement(tabLogout);
     }
 
-    protected WebElement getTabRegister() {
+    private WebElement getTabRegister() {
         return BrowserHelper.getDriver().findElement(tabRegister);
     }
 
-    protected WebElement getTabBookTicket() {
+    private WebElement getTabBookTicket() {
         return BrowserHelper.getDriver().findElement(tabBookTicket);
     }
-
 
     public void gotoLoginPage() {
         this.getTabLogin().click();
@@ -39,7 +38,7 @@ public class BasePage {
         this.getTabBookTicket().click();
     }
 
-    public void gotoLogout() {
+    public void clickLogout() {
         this.getTabLogout().click();
     }
 }
