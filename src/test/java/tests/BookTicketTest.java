@@ -1,20 +1,23 @@
 package tests;
 
 import helpers.Constant;
-import helpers.LogHelper;
+import helpers.DataHelper;
+import helpers.Wait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import page_objects.BookTicketPage;
 import page_objects.LoginPage;
+import page_objects.SuccessPage;
 
-public class BookTicketTest extends BaseTest{
+public class BookTicketTest extends BaseTest {
     BookTicketPage bookTicketPage = new BookTicketPage();
     LoginPage loginPage = new LoginPage();
 
     @BeforeMethod
     public void beforeMethod() {
         bookTicketPage.gotoBookTicketPage();
+        loginPage.login(Constant.USERNAME, Constant.PASSWORD);
     }
 
     @Test(description = "User can book a ticket")
@@ -23,11 +26,23 @@ public class BookTicketTest extends BaseTest{
         String departFrom = "Đà Nẵng";
         String arriveAt = "Huế";
         String seatType = "Hard bed";
-        String ticketAmount = "1";
+        String ticketAmount = "2";
+        bookTicketPage.bookTicket(departDate, departFrom, ticketAmount, seatType, arriveAt);
 
-        loginPage.login(Constant.USERNAME,Constant.PASSWORD);
+        SuccessPage successPage = new SuccessPage();
+        String actualConfirmMsg = successPage.getConfirmMessage();
+        String expectedConfirmMsg = "Ticket Booked Successfully!";
+        Assert.assertEquals(actualConfirmMsg, expectedConfirmMsg, "Booked error!");
 
-        bookTicketPage.bookTicket(departDate, departFrom, arriveAt, seatType, ticketAmount);
+        String bookDate = DataHelper.getDate(0);
+        String expiredDate = DataHelper.getDate(3);
+
+        String actualMsg = bookTicketPage.checkTicket();
+        String expectedMsg = "{ Depart Station: " + departFrom + ", Arrive Station: "
+                + arriveAt + ", Seat Type: " + seatType + ", Depart Date: " + departDate
+                + ", Book Date: " + bookDate + ", Expired Date: " + expiredDate
+                + ", Amount: " + ticketAmount + " }";
+
+        Assert.assertEquals(actualMsg, expectedMsg, "Booked error!");
     }
-
 }

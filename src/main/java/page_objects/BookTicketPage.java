@@ -1,13 +1,10 @@
 package page_objects;
 
 import helpers.BrowserHelper;
-import helpers.Constant;
 import helpers.ElementHelper;
-import helpers.Wait;
 import models.BookTicket;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
 public class BookTicketPage extends BasePage {
     private final By ddlDepartDate = By.name("Date");
@@ -41,23 +38,31 @@ public class BookTicketPage extends BasePage {
         return BrowserHelper.getDriver().findElement(btnBookTicket);
     }
 
-    public void bookTicket(String departDate, String departFrom, String arriveAt, String seatType, String ticketAmount) {
+    public void bookTicket(String departDate, String departFrom, String ticketAmount, String seatType, String arriveAt) {
         BookTicket bookTicket = new BookTicket();
 
         bookTicket.setDepartDate(departDate);
         bookTicket.setDepartFrom(departFrom);
-        bookTicket.setArriveAt(arriveAt);
-        bookTicket.setSeatType(seatType);
         bookTicket.setTicketAmount(ticketAmount);
+        bookTicket.setSeatType(seatType);
+        bookTicket.setArriveAt(arriveAt);
 
-        ElementHelper.selectDropdownByText(getDdlDepartDate(),departDate);
-        ElementHelper.selectDropdownByText(getDdlDepartFrom(),departFrom);
-        Wait.untilAbc(ddlArriveAt,Constant.SHORT_TIME);
-        ElementHelper.selectDropdownByText(getDdlArriveAt(),arriveAt);
-        ElementHelper.selectDropdownByText(getDdlSeatType(),seatType);
-        ElementHelper.selectDropdownByText(getDdlTicketAmount(),ticketAmount);
+        ElementHelper.selectDropdownByText(getDdlDepartFrom(), departFrom);
+        ElementHelper.selectDropdownByText(getDdlDepartDate(), departDate);
+        ElementHelper.selectDropdownByText(getDdlTicketAmount(), ticketAmount);
+        ElementHelper.selectDropdownByText(getDdlSeatType(), seatType);
+        ElementHelper.selectDropdownByText(getDdlArriveAt(), arriveAt);
+
 
         ElementHelper.scrollToView(getBtnBookTicket());
         this.getBtnBookTicket().click();
+    }
+
+    public String checkTicket() {
+        SuccessPage successPage = new SuccessPage();
+        return "{ Depart Station: " + successPage.getTextByHead("Depart Station") + ", Arrive Station: " + successPage.getTextByHead("Arrive Station")
+                + ", Seat Type: " + successPage.getTextByHead("Seat Type") + ", Depart Date: " + successPage.getTextByHead("Depart Date")
+                + ", Book Date: " + successPage.getTextByHead("Book Date") + ", Expired Date: " + successPage.getTextByHead("Expired Date")
+                + ", Amount: " + successPage.getTextByHead("Amount") + " }";
     }
 }

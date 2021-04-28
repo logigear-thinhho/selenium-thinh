@@ -15,7 +15,7 @@ public class BaseTest {
     @AfterTest
     public void afterTest() {
         System.out.println("Post-condition");
-//        BrowserHelper.quitBrowser();
+        BrowserHelper.quitBrowser();
     }
 
 

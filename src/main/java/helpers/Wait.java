@@ -1,6 +1,7 @@
 package helpers;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -15,19 +16,9 @@ public class Wait {
         return wait.until(ExpectedConditions.titleIs(title));
     }
 
-    public static void untilAvailable(By element, int time) {
-        try {
-            WebDriverWait wait = new WebDriverWait(BrowserHelper.getDriver(), time);
-            wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(element));
-        } catch (RuntimeException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void untilAbc(By locator, int seconds) {
+    public static void untilVisibilityOfNestedElements(By locator, By child, int seconds) {
         WebDriverWait wait = new WebDriverWait(BrowserHelper.getDriver(), seconds);
-        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
+        wait.until(ExpectedConditions.visibilityOfNestedElementsLocatedBy(locator,child));
     }
-
 
 }
