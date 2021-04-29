@@ -1,7 +1,9 @@
 package page_objects;
 
 import helpers.BrowserHelper;
+import helpers.Constant;
 import helpers.ElementHelper;
+import helpers.Wait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -55,11 +57,12 @@ public class BookTicketPage extends BasePage {
         return getCellByHeader(header).getText();
     }
 
-    public void bookTicket(String departDate, String departFrom, String ticketAmount, String seatType, String arriveAt) {
+    public void bookTicket(String departFrom, String arriveAt, String seatType, String departDate, String ticketAmount) {
         ElementHelper.selectDropdownByText(getDdlDepartFrom(), departFrom);
         ElementHelper.selectDropdownByText(getDdlDepartDate(), departDate);
         ElementHelper.selectDropdownByText(getDdlTicketAmount(), ticketAmount);
         ElementHelper.scrollToView(getBtnBookTicket());
+        Wait.notStalenessOf(getDdlSeatType(), Constant.SHORT_TIME);
         ElementHelper.selectDropdownByText(getDdlSeatType(), seatType);
         ElementHelper.selectDropdownByText(getDdlArriveAt(), arriveAt);
 

@@ -8,7 +8,7 @@ public class BaseTest {
     @BeforeMethod
     public void beforeMethod() {
         System.out.println("Pre-condition");
-        BrowserHelper.startBrowser(BrowserHelper.DriverType.CHROME);
+        BrowserHelper.startBrowser(BrowserHelper.DriverType.FIREFOX);
         BrowserHelper.navigateToUrl(Constant.RAILWAY_URL);
     }
 

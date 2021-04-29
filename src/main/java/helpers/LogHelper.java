@@ -18,7 +18,7 @@ public class LogHelper {
     }
 
     public static void warn(String message) {
-       logger.warn(message);
+        logger.warn(message);
     }
 
     public static void error(String message) {
@@ -31,5 +31,9 @@ public class LogHelper {
 
     public static void debug(String message) {
         logger.debug(message);
+    }
+
+    public static void info(boolean message) {
+        logger.info(message);
     }
 }

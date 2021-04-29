@@ -23,7 +23,7 @@ public class BookTicketTest extends BaseTest {
         String ticketAmount = "1";
         String totalPrice = "250000";
 
-        bookTicketPage.bookTicket(departDate, departFrom, ticketAmount, seatType, arriveAt);
+        bookTicketPage.bookTicket(departFrom, arriveAt, seatType, departDate, ticketAmount);
 
         String actualConfirmMsg = bookTicketPage.getConfirmMessage();
         String expectedConfirmMsg = "Ticket Booked Successfully!";

@@ -46,4 +46,8 @@ public class BrowserHelper {
     public static void navigateToUrl(String url) {
         getDriver().get(url);
     }
+
+    public static void acceptAlert() {
+        getDriver().switchTo().alert().accept();
+    }
 }

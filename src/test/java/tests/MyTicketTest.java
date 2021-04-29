@@ -1,6 +1,7 @@
 package tests;
 
 import helpers.DataHelper;
+import helpers.LogHelper;
 import models.Ticket;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -26,6 +27,8 @@ public class MyTicketTest extends BaseTest {
         String email = DataHelper.getRandomEmail();
         String password = DataHelper.getRandomText();
         String pid = DataHelper.getRandomNumber();
+        LogHelper.info(email);
+        LogHelper.info(password);
 
         registerPage.gotoRegisterPage();
         registerPage.register(email, password, password, pid);
@@ -34,19 +37,21 @@ public class MyTicketTest extends BaseTest {
         loginPage.login(email, password);
 
         bookTicketPage.gotoBookTicketPage();
-        bookTicketPage.bookTicket(departDate, departFrom, ticketAmount, seatType, arriveAt);
-
-        Ticket ticket = new Ticket();
-        ticket.setDepartArrive(departDate);
-        ticket.setDepartStation(departFrom);
-        ticket.setAmountTicket(ticketAmount);
-        ticket.setSeatType(seatType);
-        ticket.setDepartArrive(arriveAt);
+        bookTicketPage.bookTicket(departFrom, arriveAt, seatType, departDate, ticketAmount);
 
         myTicketPage.gotoMyTicketPage();
+
+        Ticket ticket = new Ticket();
+        ticket.setDepartStation(departFrom);
+        ticket.setDepartArrive(arriveAt);
+        ticket.setSeatType(seatType);
+        ticket.setDepartDate(departDate);
+        ticket.setAmountTicket(ticketAmount);
+
         myTicketPage.cancelTicket(ticket);
 
-        boolean actualResult = myTicketPage.checkTicketExist(ticket);
-        Assert.assertFalse(actualResult);
+        boolean actualResult = myTicketPage.doesTicketExist(ticket);
+        LogHelper.info(actualResult);
+        Assert.assertFalse(actualResult,"Ticket has not been successfully deleted");
     }
 }
