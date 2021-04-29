@@ -28,7 +28,7 @@ public class BookTicketTest extends BaseTest {
         String actualConfirmMsg = bookTicketPage.getConfirmMessage();
         String expectedConfirmMsg = "Ticket Booked Successfully!";
 
-        Assert.assertEquals(actualConfirmMsg, expectedConfirmMsg, "Booked error!");
+        Assert.assertEquals(actualConfirmMsg, expectedConfirmMsg, actualConfirmMsg + " is not matched with " + expectedConfirmMsg);
 
         String bookDate = DataHelper.getDateFromToday(0);
         String expiredDate = DataHelper.getDateFromToday(3);

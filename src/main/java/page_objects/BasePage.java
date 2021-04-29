@@ -9,6 +9,8 @@ public class BasePage {
     private final By tabLogout = By.cssSelector("a[href$='Logout']");
     private final By tabRegister = By.cssSelector("a[href*='/Register']");
     private final By tabBookTicket = By.cssSelector("a[href*='BookTicket']");
+    private final By tabChangePassword = By.cssSelector("a[href*='ChangePassword']");
+    private final By tabMyTicket = By.cssSelector("a[href*='ManageTicket']");
 
     private WebElement getTabLogin() {
         return BrowserHelper.getDriver().findElement(tabLogin);
@@ -26,6 +28,14 @@ public class BasePage {
         return BrowserHelper.getDriver().findElement(tabBookTicket);
     }
 
+    private WebElement getTabMyTicket() {
+        return BrowserHelper.getDriver().findElement(tabMyTicket);
+    }
+
+    private WebElement getTabChangePassword() {
+        return BrowserHelper.getDriver().findElement(tabChangePassword);
+    }
+
     public void gotoLoginPage() {
         this.getTabLogin().click();
     }
@@ -36,6 +46,14 @@ public class BasePage {
 
     public void gotoBookTicketPage() {
         this.getTabBookTicket().click();
+    }
+
+    public void gotoMyTicketPage() {
+        this.getTabMyTicket().click();
+    }
+
+    public void gotoChangePasswordPage() {
+        this.getTabChangePassword().click();
     }
 
     public void clickLogout() {

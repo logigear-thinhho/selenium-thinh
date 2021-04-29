@@ -59,10 +59,10 @@ public class BookTicketPage extends BasePage {
         ElementHelper.selectDropdownByText(getDdlDepartFrom(), departFrom);
         ElementHelper.selectDropdownByText(getDdlDepartDate(), departDate);
         ElementHelper.selectDropdownByText(getDdlTicketAmount(), ticketAmount);
+        ElementHelper.scrollToView(getBtnBookTicket());
         ElementHelper.selectDropdownByText(getDdlSeatType(), seatType);
         ElementHelper.selectDropdownByText(getDdlArriveAt(), arriveAt);
 
-        ElementHelper.scrollToView(getBtnBookTicket());
         this.getBtnBookTicket().click();
     }
 }

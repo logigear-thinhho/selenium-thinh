@@ -17,6 +17,4 @@ public class BaseTest {
         System.out.println("Post-condition");
         BrowserHelper.quitBrowser();
     }
-
-
 }
