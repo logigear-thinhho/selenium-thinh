@@ -8,9 +8,9 @@ import org.openqa.selenium.WebElement;
 public class LoginPage extends BasePage {
     private final By txtEmail = By.id("username");
     private final By txtPassword = By.id("password");
-    private final By btnLogin = By.cssSelector("input[type='submit']");
+    private final By btnLogin = By.cssSelector("input[value='Login']");
     private final By lblLoginErrorMsg = By.cssSelector(".message.error.LoginForm");
-    private final By lblWelcomeMessage = By.cssSelector(".account strong");
+    private final By lblWelcomeMessage = By.className("account");
 
     private WebElement getTxtEmail() {
         return BrowserHelper.getDriver().findElement(txtEmail);
