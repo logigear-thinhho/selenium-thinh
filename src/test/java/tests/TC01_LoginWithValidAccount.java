@@ -5,7 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import page_objects.LoginPage;
 
-public class TC01_LoginWithValidAccount extends BaseTest{
+public class TC01_LoginWithValidAccount extends BaseTest {
     LoginPage loginPage = new LoginPage();
 
     @Test(description = "User can log into Railway with valid username and password")
@@ -18,5 +18,4 @@ public class TC01_LoginWithValidAccount extends BaseTest{
 
         Assert.assertEquals(actualMsg, expectedMsg, "Welcome message is not displayed as expected");
     }
-
 }
