@@ -50,4 +50,8 @@ public class BrowserHelper {
     public static void acceptAlert() {
         getDriver().switchTo().alert().accept();
     }
+
+    public static void cancelAlert() {
+        getDriver().switchTo().alert().dismiss();
+    }
 }
