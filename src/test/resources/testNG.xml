@@ -4,10 +4,18 @@
 <!-- ................................................................. -->
 <suite name="test-suite">
 
-    <test name="test1">
-        <packages>
-            <package name="tests"></package>
-        </packages>
+    <test name="Test Chrome">
+        <parameter name="browser" value="Chrome"/>
+        <classes>
+            <class name="tests.TC01_LoginWithValidAccount"/>
+        </classes>
+    </test>
+
+    <test name="Test Firefox">
+        <parameter name="browser" value="Firefox"/>
+        <classes>
+            <class name="tests.TC01_LoginWithValidAccount"/>
+        </classes>
     </test>
 
     <listeners>
