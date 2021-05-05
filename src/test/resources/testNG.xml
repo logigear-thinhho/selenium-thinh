@@ -3,7 +3,6 @@
 <!-- SAMPLE testng.xml file with  ReportNG integration                 -->
 <!-- ................................................................. -->
 <suite name="test-suite">
-
     <test name="Test Chrome">
         <parameter name="browser" value="Chrome"/>
         <classes>
@@ -28,5 +27,4 @@
         <listener class-name="org.uncommons.reportng.HTMLReporter"/>
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
     </listeners>
-
 </suite>
