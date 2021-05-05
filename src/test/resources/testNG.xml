@@ -1,0 +1,26 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!-- ................................................................. -->
+<!-- SAMPLE testng.xml file with  ReportNG integration                 -->
+<!-- ................................................................. -->
+<suite name="test-suite">
+
+    <test name="Test Chrome">
+        <parameter name="browser" value="Chrome"/>
+        <classes>
+            <class name="tests.TC01_LoginWithValidAccount"/>
+        </classes>
+    </test>
+
+    <test name="Test Firefox">
+        <parameter name="browser" value="Firefox"/>
+        <classes>
+            <class name="tests.TC01_LoginWithValidAccount"/>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+    </listeners>
+
+</suite>
