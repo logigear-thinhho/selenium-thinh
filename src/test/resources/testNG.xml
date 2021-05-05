@@ -10,6 +10,7 @@
             <class name="tests.TC01_LoginWithValidAccount"/>
             <class name="tests.TC02_LoginWithBlankUsername"/>
             <class name="tests.TC03_LoginWithInvalidPassword"/>
+            <class name="tests.TC04_CheckContactEmailAddressHref"/>
         </classes>
     </test>
 
@@ -19,6 +20,7 @@
             <class name="tests.TC01_LoginWithValidAccount"/>
             <class name="tests.TC02_LoginWithBlankUsername"/>
             <class name="tests.TC03_LoginWithInvalidPassword"/>
+            <class name="tests.TC04_CheckContactEmailAddressHref"/>
         </classes>
     </test>
 
