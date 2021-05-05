@@ -9,6 +9,7 @@
         <classes>
             <class name="tests.TC01_LoginWithValidAccount"/>
             <class name="tests.TC02_LoginWithBlankUsername"/>
+            <class name="tests.TC03_LoginWithInvalidPassword"/>
         </classes>
     </test>
 
@@ -17,6 +18,7 @@
         <classes>
             <class name="tests.TC01_LoginWithValidAccount"/>
             <class name="tests.TC02_LoginWithBlankUsername"/>
+            <class name="tests.TC03_LoginWithInvalidPassword"/>
         </classes>
     </test>
 
