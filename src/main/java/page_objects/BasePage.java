@@ -29,5 +29,4 @@ public class BasePage {
     public void gotoContactPage() {
         BrowserHelper.getDriver().findElement(tabContact).click();
     }
-
 }

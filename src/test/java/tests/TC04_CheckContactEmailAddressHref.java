@@ -16,5 +16,4 @@ public class TC04_CheckContactEmailAddressHref extends BaseTest {
 
         Assert.assertEquals(actualEmailHref, expectedEmailHref, "Email address's href is not match!");
     }
-
 }
