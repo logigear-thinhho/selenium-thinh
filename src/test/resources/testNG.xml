@@ -8,6 +8,7 @@
         <parameter name="browser" value="Chrome"/>
         <classes>
             <class name="tests.TC01_LoginWithValidAccount"/>
+            <class name="tests.TC02_LoginWithBlankUsername"/>
         </classes>
     </test>
 
@@ -15,6 +16,7 @@
         <parameter name="browser" value="Firefox"/>
         <classes>
             <class name="tests.TC01_LoginWithValidAccount"/>
+            <class name="tests.TC02_LoginWithBlankUsername"/>
         </classes>
     </test>
 
