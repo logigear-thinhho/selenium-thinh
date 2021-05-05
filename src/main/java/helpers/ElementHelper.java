@@ -10,13 +10,17 @@ public class ElementHelper {
         js.executeScript("arguments[0].scrollIntoView();", element);
     }
 
-    public static void selectDropdownByText(WebElement element, String text){
+    public static void selectDropdownByText(WebElement element, String text) {
         Select dropdown = new Select(element);
         dropdown.selectByVisibleText(text);
     }
 
-    public static void selectDropdownByIndex(WebElement element, Integer index){
+    public static void selectDropdownByIndex(WebElement element, Integer index) {
         Select dropdown = new Select(element);
         dropdown.selectByIndex(index);
+    }
+
+    public static boolean isDisplayed(WebElement element) {
+        return element.isDisplayed();
     }
 }
