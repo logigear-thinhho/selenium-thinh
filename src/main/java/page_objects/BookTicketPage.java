@@ -17,7 +17,6 @@ public class BookTicketPage extends BasePage {
     private final By lblConfirmMessage = By.cssSelector("#content h1");
     private final By lblErrorMessage = By.cssSelector(".message.error");
     private final By lblTicketAmountErrorMsg = By.className("validation-error");
-    private final String dynamicTableCell = "//table/tbody/tr/td[count(//table/tbody/tr/th[.='%s']/preceding-sibling::th)+1]";
 
     private WebElement getDdlDepartDate() {
         return BrowserHelper.getDriver().findElement(ddlDepartDate);
@@ -55,16 +54,8 @@ public class BookTicketPage extends BasePage {
         return BrowserHelper.getDriver().findElement(lblTicketAmountErrorMsg);
     }
 
-    private WebElement getCellByHeader(String header) {
-        return BrowserHelper.getDriver().findElement(By.xpath(String.format(dynamicTableCell, header)));
-    }
-
     public String getConfirmMessage() {
         return this.getLblConfirmMessage().getText();
-    }
-
-    public String getCellValueByHeader(String header) {
-        return getCellByHeader(header).getText();
     }
 
     public String getErrorMessage() {
@@ -85,5 +76,17 @@ public class BookTicketPage extends BasePage {
         ElementHelper.selectDropdownByText(getDdlArriveAt(), arriveAt);
 
         this.getBtnBookTicket().click();
+    }
+
+    public String getSelectedTextOfDepartFrom() {
+        return ElementHelper.getSelectedOptionOfDropdown(getDdlDepartFrom());
+    }
+
+    public String getSelectedTextOfArriveAt() {
+        return ElementHelper.getSelectedOptionOfDropdown(getDdlArriveAt());
+    }
+
+    public String getSelectedTextOfSeatType() {
+        return ElementHelper.getSelectedOptionOfDropdown(getDdlSeatType());
     }
 }

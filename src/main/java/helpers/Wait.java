@@ -30,5 +30,4 @@ public class Wait {
         WebDriverWait wait = new WebDriverWait(BrowserHelper.getDriver(), seconds);
         wait.until(ExpectedConditions.alertIsPresent());
     }
-
 }
