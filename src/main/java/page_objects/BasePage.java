@@ -44,16 +44,16 @@ public class BasePage {
         BrowserHelper.getDriver().findElement(tabMyTicket).click();
     }
 
-    public boolean isMyTicketTabExistent() {
-        return ElementHelper.isDisplayed(BrowserHelper.getDriver().findElement(tabMyTicket));
+    public boolean doesMyTicketTabExist() {
+        return ElementHelper.doesElementExist(BrowserHelper.getDriver().findElement(tabMyTicket));
     }
 
-    public boolean isChangePasswordTabExistent() {
-        return ElementHelper.isDisplayed(BrowserHelper.getDriver().findElement(tabChangePassword));
+    public boolean doesChangePasswordTabExist() {
+        return ElementHelper.doesElementExist(BrowserHelper.getDriver().findElement(tabChangePassword));
     }
 
-    public boolean isLogoutTabExistent() {
-        return ElementHelper.isDisplayed(BrowserHelper.getDriver().findElement(tabLogout));
+    public boolean doesLogoutTabExist() {
+        return ElementHelper.doesElementExist(BrowserHelper.getDriver().findElement(tabLogout));
     }
 
     public String getPageHeader() {

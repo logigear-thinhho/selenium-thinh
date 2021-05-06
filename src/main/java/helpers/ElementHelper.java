@@ -1,6 +1,8 @@
 package helpers;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
@@ -20,7 +22,11 @@ public class ElementHelper {
         dropdown.selectByIndex(index);
     }
 
-    public static boolean isDisplayed(WebElement element) {
-        return element.isDisplayed();
+    public static boolean doesElementExist(WebElement element) {
+        try {
+            return element.isDisplayed();
+        } catch (NoSuchElementException e) {
+            return false;
+        }
     }
 }
