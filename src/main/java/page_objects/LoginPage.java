@@ -52,5 +52,4 @@ public class LoginPage extends BasePage {
     public void logout() {
         clickLogout();
     }
-
 }
