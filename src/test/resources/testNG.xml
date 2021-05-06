@@ -12,6 +12,7 @@
             <class name="tests.TC04_CheckContactEmailAddressHref"/>
             <class name="tests.TC06_CheckAdditionalPageIsDisplayed"/>
             <class name="tests.TC07_RegisterWithValidData"/>
+            <class name="tests.TC10_ResetPasswordWithIncorrectEmail"/>
         </classes>
     </test>
 
@@ -24,6 +25,7 @@
             <class name="tests.TC04_CheckContactEmailAddressHref"/>
             <class name="tests.TC06_CheckAdditionalPageIsDisplayed"/>
             <class name="tests.TC07_RegisterWithValidData"/>
+            <class name="tests.TC10_ResetPasswordWithIncorrectEmail"/>
         </classes>
     </test>
 

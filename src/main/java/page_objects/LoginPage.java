@@ -11,6 +11,11 @@ public class LoginPage extends BasePage {
     private final By btnLogin = By.cssSelector("input[value='Login']");
     private final By lblLoginErrorMsg = By.cssSelector(".message.error.LoginForm");
     private final By lblWelcomeMessage = By.className("account");
+    //Reset Password Page
+    private final By lnkForgotPassword = By.cssSelector("a[href='/Account/ForgotPassword.cshtml']");
+    private final By txtForgotEmail = By.id("email");
+    private final By lblForgotPasswordErrorMsg = By.cssSelector(".message.error");
+    private final By btnSendInstructions = By.cssSelector("input[value='Send Instructions']");
 
     private WebElement getTxtEmail() {
         return BrowserHelper.getDriver().findElement(txtEmail);
@@ -32,12 +37,28 @@ public class LoginPage extends BasePage {
         return BrowserHelper.getDriver().findElement(lblWelcomeMessage);
     }
 
+    private WebElement getLblForgotPasswordErrorMsg() {
+        return BrowserHelper.getDriver().findElement(lblForgotPasswordErrorMsg);
+    }
+
+    private WebElement getTxtForgotEmail() {
+        return BrowserHelper.getDriver().findElement(txtForgotEmail);
+    }
+
+    private WebElement getBtnSendInstructions() {
+        return BrowserHelper.getDriver().findElement(btnSendInstructions);
+    }
+
     public String getWelcomeMessage() {
         return this.getLblWelcomeMessage().getText();
     }
 
     public String getErrorMessage() {
         return this.getLblErrorMsg().getText();
+    }
+
+    public String getForgotPasswordErrorMsg() {
+        return this.getLblForgotPasswordErrorMsg().getText();
     }
 
     public void login(String email, String password) {
@@ -51,5 +72,15 @@ public class LoginPage extends BasePage {
 
     public void logout() {
         clickLogout();
+    }
+
+    public void gotoForgotPasswordPage() {
+        BrowserHelper.getDriver().findElement(lnkForgotPassword).click();
+    }
+
+    public void resetPassword(String email) {
+        getTxtForgotEmail().clear();
+        this.getTxtForgotEmail().sendKeys(email);
+        this.getBtnSendInstructions().click();
     }
 }
