@@ -27,9 +27,9 @@ public class TC06_CheckAdditionalPageIsDisplayed extends BaseTest {
         String actualChangePasswordTitle = changePasswordPage.getPageHeader();
         String expectedChangePasswordTitle = "Change password";
 
-        Assert.assertTrue(changePasswordPage.isMyTicketTabExist(), "My Ticket Tab is not displayed");
-        Assert.assertTrue(changePasswordPage.isChangePasswordTabExist(), "Change Password Tab is not displayed");
-        Assert.assertTrue(changePasswordPage.isLogoutTabExist(), "Logout Tab is not displayed");
+        Assert.assertTrue(changePasswordPage.isMyTicketTabExistent(), "My Ticket Tab is not displayed");
+        Assert.assertTrue(changePasswordPage.isChangePasswordTabExistent(), "Change Password Tab is not displayed");
+        Assert.assertTrue(changePasswordPage.isLogoutTabExistent(), "Logout Tab is not displayed");
 
         Assert.assertEquals(actualMyTicketTitle, expectedMyTicketTitle, "My Ticket Page Title is not displayed as expected");
         Assert.assertEquals(actualChangePasswordTitle, expectedChangePasswordTitle, "Change Password Page Title is not displayed as expected");

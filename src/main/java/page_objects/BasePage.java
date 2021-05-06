@@ -44,15 +44,15 @@ public class BasePage {
         BrowserHelper.getDriver().findElement(tabMyTicket).click();
     }
 
-    public boolean isMyTicketTabExist() {
+    public boolean isMyTicketTabExistent() {
         return ElementHelper.isDisplayed(BrowserHelper.getDriver().findElement(tabMyTicket));
     }
 
-    public boolean isChangePasswordTabExist() {
+    public boolean isChangePasswordTabExistent() {
         return ElementHelper.isDisplayed(BrowserHelper.getDriver().findElement(tabChangePassword));
     }
 
-    public boolean isLogoutTabExist() {
+    public boolean isLogoutTabExistent() {
         return ElementHelper.isDisplayed(BrowserHelper.getDriver().findElement(tabLogout));
     }
 
