@@ -14,6 +14,7 @@
             <class name="tests.TC07_RegisterWithValidData"/>
             <class name="tests.TC10_ResetPasswordWithIncorrectEmail"/>
             <class name="tests.TC11_RegisterWithEmptyFields"/>
+            <class name="tests.TC14_BookMoreThanTenTickets"/>
         </classes>
     </test>
 
@@ -28,6 +29,7 @@
             <class name="tests.TC07_RegisterWithValidData"/>
             <class name="tests.TC10_ResetPasswordWithIncorrectEmail"/>
             <class name="tests.TC11_RegisterWithEmptyFields"/>
+            <class name="tests.TC14_BookMoreThanTenTickets"/>
         </classes>
     </test>
 
