@@ -19,19 +19,15 @@ public class BasePage {
     public void gotoLoginPage() {
         BrowserHelper.getDriver().findElement(tabLogin).click();
     }
-
     public void clickLogout() {
         BrowserHelper.getDriver().findElement(tabLogout).click();
     }
-
     public void gotoRegisterPage() {
         BrowserHelper.getDriver().findElement(tabRegister).click();
     }
-
     public void gotoBookTicketPage() {
         BrowserHelper.getDriver().findElement(tabBookTicket).click();
     }
-
     public void gotoContactPage() {
         BrowserHelper.getDriver().findElement(tabContact).click();
     }
