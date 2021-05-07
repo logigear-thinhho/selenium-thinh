@@ -9,8 +9,8 @@ import org.openqa.selenium.WebElement;
 
 public class MyTicketPage extends BasePage {
     private final By lblErrorMsg = By.cssSelector(".error.message");
-    String ticketInfo = "//tr//td[text()='%s']//following::td[text()='%s']//following::td[text()='%s']//following::td[text()='%s']//following::td[text()='%s']";
-    String btnCancel = "//tr//td[text()='%s']//following::td[text()='%s']//following::td[text()='%s']//following::td[text()='%s']//following::td[text()='%s']//following::input[@value='Cancel']";
+    String dynamicTicketInfo = "//tr//td[text()='%s']//following::td[text()='%s']//following::td[text()='%s']//following::td[text()='%s']//following::td[text()='%s']";
+    String dynamicBtnCancel = "//tr//td[text()='%s']//following::td[text()='%s']//following::td[text()='%s']//following::td[text()='%s']//following::td[text()='%s']//following::input[@value='Cancel']";
 
     private WebElement getLblErrorMsg() {
         return BrowserHelper.getDriver().findElement(lblErrorMsg);
@@ -21,7 +21,7 @@ public class MyTicketPage extends BasePage {
     }
 
     public void cancelTicket(Ticket ticket) {
-        By getBtnCancel = By.xpath(String.format(btnCancel
+        By getBtnCancel = By.xpath(String.format(dynamicBtnCancel
                 , ticket.getDepartStation()
                 , ticket.getDepartArrive()
                 , ticket.getSeatType()
@@ -36,7 +36,7 @@ public class MyTicketPage extends BasePage {
     public boolean doesTicketExist(Ticket ticket) {
         Wait.untilElementExist(lblErrorMsg,Constant.SHORT_TIME);
 
-        By getTicketInfo = By.xpath(String.format(ticketInfo
+        By getTicketInfo = By.xpath(String.format(dynamicTicketInfo
                 , ticket.getDepartStation()
                 , ticket.getDepartArrive()
                 , ticket.getSeatType()
