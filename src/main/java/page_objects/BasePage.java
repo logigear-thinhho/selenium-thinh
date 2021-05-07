@@ -13,6 +13,7 @@ public class BasePage {
     private final By tabBookTicket = By.cssSelector("a[href='/Page/BookTicketPage.cshtml'");
     private final By tabContact = By.cssSelector("a[href='/Page/Contact.cshtml'");
     private final By tabMyTicket = By.cssSelector("a[href='/Page/ManageTicket.cshtml'");
+    private final By tabTicketPrice = By.cssSelector("a[href='/Page/TrainPriceListPage.cshtml']");
     private final By tabChangePassword = By.cssSelector("a[href='/Account/ChangePassword.cshtml'");
     private final By pageHeader = By.cssSelector("#content h1");
 
@@ -50,6 +51,10 @@ public class BasePage {
 
     public boolean doesLogoutTabExist() {
         return ElementHelper.doesElementExist(BrowserHelper.getDriver().findElement(tabLogout));
+    }
+
+    public void gotoTicketPricePage() {
+        BrowserHelper.getDriver().findElement(tabTicketPrice).click();
     }
 
     public String getPageHeader() {

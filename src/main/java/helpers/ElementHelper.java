@@ -29,4 +29,9 @@ public class ElementHelper {
             return false;
         }
     }
+
+    public static String getDropDownSelectedValue(WebElement element) {
+        Select dropdown = new Select(element);
+        return dropdown.getFirstSelectedOption().getText();
+    }
 }
