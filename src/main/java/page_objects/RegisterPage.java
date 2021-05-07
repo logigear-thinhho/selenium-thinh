@@ -13,6 +13,8 @@ public class RegisterPage extends BasePage {
     private final By btnRegister = By.cssSelector("input[title='Register']");
     private final By lblErrorMessage = By.cssSelector(".message.error");
     private final By lblConfirmMessage = By.cssSelector("#content p");
+    private final By lblPasswordErrorMsg = By.xpath("//label[@for='password' and @class='validation-error']");
+    private final By lblPidErrorMsg = By.xpath("//label[@for='pid' and @class='validation-error']");
 
     private WebElement getTxtEmail() {
         return BrowserHelper.getDriver().findElement(txtEmail);
@@ -42,12 +44,28 @@ public class RegisterPage extends BasePage {
         return BrowserHelper.getDriver().findElement(lblConfirmMessage);
     }
 
+    private WebElement getLblPasswordErrorMsg() {
+        return BrowserHelper.getDriver().findElement(lblPasswordErrorMsg);
+    }
+
+    private WebElement getLblPidErrorMsg() {
+        return BrowserHelper.getDriver().findElement(lblPidErrorMsg);
+    }
+
     public String getErrorMessage() {
         return this.getLblErrorMessage().getText();
     }
 
     public String getConfirmMessage() {
         return this.getLblConfirmMessage().getText();
+    }
+
+    public String getPasswordErrorMsg() {
+        return this.getLblPasswordErrorMsg().getText();
+    }
+
+    public String getPidErrorMsg() {
+        return this.getLblPidErrorMsg().getText();
     }
 
     //Methods
