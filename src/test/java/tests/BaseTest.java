@@ -11,7 +11,7 @@ import org.testng.annotations.Parameters;
 public class BaseTest {
     @BeforeMethod
     @Parameters("browser")
-    public void beforeMethod(@Optional("firefox") String browser) {
+    public void beforeMethod(@Optional("chrome") String browser) {
         LogHelper.info("Pre-condition");
         BrowserHelper.startBrowser(BrowserHelper.DriverType.valueOf(browser.toUpperCase()));
         BrowserHelper.navigateToUrl(Constant.RAILWAY_URL);
