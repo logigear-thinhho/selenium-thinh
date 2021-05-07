@@ -30,7 +30,7 @@ public class ElementHelper {
         }
     }
 
-    public static String getSelectedOptionOfDropdown(WebElement element) {
+    public static String getDropDownSelectedValue(WebElement element) {
         Select dropdown = new Select(element);
         return dropdown.getFirstSelectedOption().getText();
     }

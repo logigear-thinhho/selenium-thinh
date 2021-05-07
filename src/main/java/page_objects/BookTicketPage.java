@@ -79,14 +79,14 @@ public class BookTicketPage extends BasePage {
     }
 
     public String getSelectedTextOfDepartFrom() {
-        return ElementHelper.getSelectedOptionOfDropdown(getDdlDepartFrom());
+        return ElementHelper.getDropDownSelectedValue(getDdlDepartFrom());
     }
 
     public String getSelectedTextOfArriveAt() {
-        return ElementHelper.getSelectedOptionOfDropdown(getDdlArriveAt());
+        return ElementHelper.getDropDownSelectedValue(getDdlArriveAt());
     }
 
     public String getSelectedTextOfSeatType() {
-        return ElementHelper.getSelectedOptionOfDropdown(getDdlSeatType());
+        return ElementHelper.getDropDownSelectedValue(getDdlSeatType());
     }
 }
