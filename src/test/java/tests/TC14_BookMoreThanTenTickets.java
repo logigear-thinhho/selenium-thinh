@@ -45,6 +45,6 @@ public class TC14_BookMoreThanTenTickets extends BaseTest {
         String expectedTicketAmountErrorMsg = "You have booked 10 tickets. You can book no more.";
 
         Assert.assertEquals(actualErrorMsg, expectedErrorMsg, "Error message is not displayed as expected");
-        Assert.assertEquals(actualTicketAmountErrorMsg, expectedTicketAmountErrorMsg, "Error message is not displayed as expected");
+        Assert.assertEquals(actualTicketAmountErrorMsg, expectedTicketAmountErrorMsg, "Ticket amount error message is not displayed as expected");
     }
 }
