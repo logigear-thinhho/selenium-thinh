@@ -69,8 +69,8 @@ public class BookTicketPage extends BasePage {
     public void bookTicket(String departFrom, String arriveAt, String seatType, String departDate, String ticketAmount) {
         ElementHelper.selectDropdownByText(getDdlDepartFrom(), departFrom);
         ElementHelper.selectDropdownByText(getDdlDepartDate(), departDate);
-        ElementHelper.selectDropdownByText(getDdlTicketAmount(), ticketAmount);
         ElementHelper.scrollToView(getBtnBookTicket());
+        ElementHelper.selectDropdownByText(getDdlTicketAmount(), ticketAmount);
         Wait.notStalenessOf(getDdlSeatType(), Constant.SHORT_TIME);
         ElementHelper.selectDropdownByText(getDdlSeatType(), seatType);
         ElementHelper.selectDropdownByText(getDdlArriveAt(), arriveAt);
